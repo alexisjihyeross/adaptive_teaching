@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mystery Machine Study</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+
+	<header id="fixed-header">
+	<h1>Mystery Machine Study</h1>
+	</header>
+	<header id="subheader">
+	<h2>Task</h2>
+	</header>
+
+	<div class="instructions">
+	
+	<h3 style="margin-top: 0.5em;">Instruction check</h3>
+    You now have all the information to start learning <span class='wug'>wug</span>! Before you start, please answer the following questions. If you are unsure of the answers, we encourage you to read through the task instructions again.
+    
+	<br><br>
+	<div id="instruction-check-wrapper">
+	<div id="instruction-check">
+
+		<form id="quizForm">
+			<fieldset>
+				<legend><b>The bonus depends on:</b></legend>
+				<label id="q1Label1">
+					<input type="radio" name="question1" value="accuracy-of-predictions"> (1) Accuracy of predictions I give to the teacher
+				</label>
+				<br>
+				<label id="q1Label2">
+					<input type="radio" name="question1" value="wug-guess"> (2) How quickly I guess what <span class=''>wug</span> does
+				</label>
+				<br>
+				<label id="q1Label3">
+					<input type="radio" name="question1" value="both"> Both (1) and (2) 
+				</label>
+			</fieldset>
+
+			<div id="question1-result" style="height: 15px;"></div>
+	
+			<br>
+	
+			<fieldset>
+				<legend><b>True or False: Multiple guesses for <span class='wug'>wug</span> are allowed.</b></legend>
+				<label id="q2Label1">
+					<input type="radio" name="question2" value="true"> True
+				</label>
+				<br>
+				<label id="q2Label2">
+					<input type="radio" name="question2" value="false"> False
+				</label>
+			</fieldset>
+			<div id="question2-result" style="height: 15px;"></div>
+
+			<br>
+		<center>
+		<div id="task-check-error-message" class="error-message" style="margin-bottom: 15px;"></div> <!-- Add this line -->
+		<button type="button" onclick="submitTaskQuestions()" class="grey-button">Submit</button>
+		</center>
+		</form>
+		
+		</div>
+		</div>
+
+	<br>
+	Press "Next" to enter the chat interface. There, you will have the opportunity to familiarize yourself with the layout <b>before learning begins and the timer starts</b>. After you press "I Am Ready" on the next page, you will interact with the teacher for 10 minutes.
+	
+    
+    <br><br>
+   
+    <div class='button-row'>
+        <center>
+		<div id="next-error-message" class="error-message" style="margin-top: 10px; height: 15px;"></div> <!-- Add this line -->
+        <div class="button-container">
+            <button id="prev-button">Back</button>
+            <button id="" onclick="validateSubmitted();">{{ button_text }}</button>
+        </div>
+        </center>
+    </div>
+	
+</div>
+    
+    <div id="timer" class="timer" style="display: none">
+		Timer: {{ time }}
+	</div>	
+
+    </div>
+   
+	<div id="progress-container">
+        <div id="progress-dots"></div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+<script src="{{ url_for('static', filename='javascript/task.js') }}"></script>
+
+</body>
+</html>
+

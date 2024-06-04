@@ -1,0 +1,538 @@
+#global-container {
+    position: absolute;
+    min-width: 800px;
+    width: 90%;
+    top: 30px;
+    left: 9%;
+    padding-bottom: 30px;
+}
+
+#chatbox {
+    width: 100%;
+    height: 93%;
+    font: Arial;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    padding: 0px;
+    border-radius: 10px;
+    background-color: #fafafa;
+    overflow-y: scroll;
+}
+
+#chat-area {
+    width: 46%;
+    max-width: 620px;
+    top: 130px;
+    height:53vh;
+    position: absolute;
+    left: 0%;
+}
+
+#input-area {
+    position: relative;
+    width: 100%;
+    left: 10%;
+    align-items: center;
+    /* display: flex; */
+    /* text-align: center; */
+    /* left: 10px; */
+    /* left: 22%; */
+    /* top: 18%; */
+}
+
+#user-input {
+    width: 50%;
+}
+
+#use-current-guess {
+    margin-left: 3px;
+}
+
+#chat-list {
+    list-style-type: none;
+    padding: 0 0 0 0;
+    margin-top: 25px; 
+    margin-bottom: 25px;
+    width: 100%;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#chat-list li {
+    display: flex;
+    width: 95%;
+    align-items: center;
+    padding: 0px;
+}
+
+.user-li {
+    justify-content: end;
+}
+
+.bot-li {
+    justify-content: start;
+}
+
+#chat-list small {
+    font-size: 13px;
+    color: #888;
+    max-width: 100%;
+    top: 50%;
+}
+
+.user-name {
+    margin-left: 10px;
+}
+
+.bot-name {
+    margin-right: 10px;
+}
+
+.bot-msg, .user-msg {
+    margin-top: 3px;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 20px;
+    position: relative;
+    max-width: 420px;
+    width: auto;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.bot-msg {
+    background: rgb(219, 238, 255);
+    margin-left: 10px;
+}
+
+.user-msg {
+    background: #E5E4E2;
+    margin-right: 10px;
+}
+
+#typing-status {
+    margin-left: 15px;
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+.incorrect {
+    color: rgb(229, 72, 72);
+    font-weight: bold;
+}
+
+.correct {
+    color: rgb(26, 147, 79);
+    font-weight: bold;
+}
+
+/*
+.user-msg::after {
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -10px;
+    top: 0;
+    border: 15px solid;
+    border-color: #E5E4E2 transparent transparent transparent;
+}
+
+.bot-msg::after {
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -10px;
+    top: 0;
+    border: 15px solid;
+    border-color: #B7D8EF transparent transparent transparent;
+}
+*/
+
+#sidebar {
+    position: relative;
+    /* top: 3%; Adjust the top position as needed */
+    left: 4%; /* Adjust the right position as needed */
+    margin-top: 0%;
+    background-color: rgb(255, 251, 224);
+    width: 82%;
+    padding: 0px 15px 5px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-width: 320px;
+    float: left;
+    font-size: 15px;
+}
+
+#reminder {
+    /* position: absolute; */
+    /* top: 50%; */
+    /* left: 3%; */
+    /* display: inline-block; */
+    width: 38%;
+    margin-top: 3%;
+    font-size: 14px;
+    margin-left: 7%;
+    color:rgb(64, 64, 64);
+    max-width: 210px;
+}
+
+#calc-note {
+    width: 38%;
+    margin-top: 10%;
+    font-size: 14px;
+    margin-left: 7%;
+    color:rgb(64, 64, 64);
+    max-width: 210px;
+}
+
+#guess-display-note {
+    width: 38%;
+    margin-top: 8%;
+    font-size: 14px;
+    margin-left: 7%;
+    color:rgb(64, 64, 64);
+    max-width: 210px;
+}
+
+#calculator {
+    position: relative;
+    font-size: 15px;
+    /* top: 65%; Adjust the top position as needed */
+    left: 4%; /* Adjust the right position as needed */
+    background-color: #fff;
+    width: 70%;
+    /* height: 30%; */
+    margin-top: 20px;
+    padding: 15px 15px 15px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-width: 320px;
+    float: left;
+}
+
+#guess-display-outer-container {
+    position: relative;
+    font-size: 15px;
+    left: 4%; /* Adjust the right position as needed */
+    background-color: #fff;
+    width: 70%;
+    margin-top: 20px;
+    padding: 15px 15px 15px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-width: 320px;
+    float: left;
+}
+
+#side-container {
+    /* border:1px solid black; */
+    width: 55%;
+    min-width: 600px;
+    left: 46%;
+    top: 0%;
+    position: relative;
+    z-index: 90;
+}
+
+#side-container-2 {
+    display: flex;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+
+#side-container-3 {
+    display: flex;
+    width: 100%;
+}
+
+#side-container-4 {
+    display: flex;
+    width: 100%;
+}
+
+.guess-container {
+    font-size: 15px;
+    margin-left: 10px;
+    vertical-align: center;
+}
+
+
+/* For in-line showing of guess numbers */
+.numerical-guess {
+    text-decoration: underline;
+}
+
+#function2-guess-display {
+    color:rgb(104, 104, 104);
+    margin-top: 5px;
+    height: 20px;
+    align-items: center;
+}
+
+#guess-display-container {
+    margin-left: 10px;
+}
+
+.number-select {
+    margin-top: 3px;
+    width: 21%;
+    padding: 5px;
+    vertical-align: center;
+}
+
+.function1-number-select {
+    width: 21%;
+    vertical-align: center;
+}
+
+.guess-select {
+    padding: 5px;
+    margin-top: 3px;
+    vertical-align: center;
+}
+
+#function1, #function2 {
+    width: 65%;
+    vertical-align: center;
+}
+
+button {
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.invisible-guess-block {
+    margin-top: 3px;
+    border: 1px solid white; /* Add a 1-pixel black border around the span */
+    padding: 0px 3px 0px 3px; /* Add some padding to create space between text and the border */
+    display: inline-block; /* Make the span behave like a block-level element with width based on content */
+    border-radius: 5px;
+/*    background-color: rgb(220, 220, 220); */
+    background-color: white;
+}
+
+.guess-block {
+    margin-top: 3px;
+    border: 1px solid rgb(220, 220, 220); /* Add a 1-pixel black border around the span */
+    padding: 0px 3px 0px 3px; /* Add some padding to create space between text and the border */
+    display: inline-block; /* Make the span behave like a block-level element with width based on content */
+    border-radius: 5px;
+/*    background-color: rgb(220, 220, 220); */
+    background-color: #f0f0f0;
+    font-family: monospace;
+    font-size: 15px;
+}
+
+#guess-error-message1, #guess-error-message2 {
+    margin-top: 10px;
+    margin-left: 5px;
+    height: 10px;
+    color: rgb(204, 40, 40);
+    /* font-size: 14px; */
+    font-weight: bold;
+}
+
+#result {
+    margin-top: 40px;
+}
+
+.result {
+    background-color: rgb(220, 235, 255);
+    padding: 0px 3px 0px 3px; /* Add some padding to create space between text and the border */
+    border-radius: 5px;
+}
+
+#calculator-error-message {
+    height: 10px;
+    text-align: center;
+}
+
+#hint-chat {
+    /* position: absolute; */
+    position: relative;
+    top: 0%; 
+    left: 4%;
+    z-index: 100;
+    width: max-content;
+    max-width: 550px;
+}
+
+.function-name {
+    height: 16px;
+}
+
+.submit-guess-button {
+    background-color: rgb(76, 126, 220);
+    padding: 7px 10px;
+    border-radius: 7px;
+}
+
+#submit-guess-button-function1, #submit-guess-button-function2  {
+    float: right;
+    margin-right: 12px;
+    vertical-align: center;
+    margin-top: 3px;
+}
+
+.submit-guess-button:hover {
+    background-color:rgb(107, 158, 254);
+    padding: 7px 10px;
+    border-radius: 7px;
+}
+
+#begin-button {
+    background-color: rgb(68, 167, 104);
+    align-items: center;
+}
+
+#begin-button-wrapper {
+    width: 90%;
+    align-items: center;
+    vertical-align: center;
+    height: 100%;
+    font-size: 15px;
+}
+
+#begin-button-outer-wrapper {
+    margin-top: 0%;
+}
+
+#begin-button:hover {
+    background-color: rgb(69, 194, 115);
+}
+
+#inner-calculator-2 {
+    margin-left: 0px;
+}
+
+
+/* Style the container */
+select {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style on hover and focus */
+  select:hover,
+  select:focus {
+    border-color: #666;
+  }
+  
+  /* Style the arrow icon */
+  /* select:after {
+    content: '\25BC';
+    font-size: 12px;
+    color: #333;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  } */
+  
+  /* Style the options */
+  select option {
+    background-color: #fff;
+    color: #333;
+  }
+
+  /* Styles for the close button */
+#finish-confirmation button {
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 302;
+}
+
+#finish-button-yes {
+    background-color: #333;
+}
+
+#finish-button-no, #finish-button {
+    background-color: rgb(76, 126, 220);
+}
+    
+#finish-button-no:hover, #finish-button:hover {
+    background-color:rgb(107, 158, 254);
+}
+
+#finish-button-yes:hover {
+	background-color: #555;
+}
+
+#chat-error-message {
+    width: 80%;
+}
+
+#streak-outer-container {
+    /* display: inline; */
+    border-radius: 10px;
+    /* background-color: #fafafa; */
+    /* border: 1px solid #ccc; */
+    align-items: center;
+    font: Arial;
+    font-weight: normal;
+    font-size: 15px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+#streak-container {
+    display: inline-flex;
+    justify-content: space-between;
+    /* margin: 20px; */
+    /* width: 100%; */
+    font: Arial;
+    font-size: 15px;
+}
+
+  .streak-item {
+    width: 15px;
+    height: 15px;
+    /* border: 2px solid #333; */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* font: Arial; */
+    transition: background-color 0.3s ease;
+    margin-left: 5px;
+    font-size: 13px;
+  }
+
+  .correct-pred {
+    background-color: rgb(105, 209, 150);
+    border: 1px solid #ccc;
+    color: #fff;
+  }
+
+  .incorrect-pred {
+    /* background-color: rgb(229, 72, 72); */
+    color: #fafafa;
+    border: 1px solid #ccc;
+  }
+
+  #pred-accuracy {
+    margin-top: 10px;
+    /* font-weight: bold; */
+    display: inline;
+  }

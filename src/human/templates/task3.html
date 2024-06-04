@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mystery Machine Study</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+
+	<header id="fixed-header">
+	<h1>Mystery Machine Study</h1>
+	</header>
+	<header id="subheader">
+	<h2>Task</h2>
+	</header>
+
+	<div class="instructions" style="width: 80%; max-width: 1400px; min-width: 750px;">
+	<h3 style="margin-top: 0.5em;">Bonus</h3>
+    <div class="two-column-container">
+		<img src="{{ url_for('static', filename='assets/interface_4.png') }}">
+        <div class="left-column">
+			<p>
+			You will recive a base pay of $4.00 for this study. In addition, based on your performance at the task, you will be <b>compensated</b> with a <b>bonus</b> dependent on:
+			<ul>
+				<li><b>Accuracy of guesses for <span class='wug'>wug</span></b>: You will receive a 
+					<span class='bonus-block'>higher bonus the sooner and longer you provide a correct guess for wug</span>. You will receive $0.05 for every 10 seconds of the teaching interaction that your guess is correct. For example, if you provided the correct guess for <span class='wug'>wug</span> 1 minute into the teaching interaction and left it unchanged, you would have a correct guess for 9 minutes, or equivalently 540 seconds. Therefore, you would get a bonus of <span class='bonus-block-2'>$0.05 &lowast; (540/10) &lowast; = $2.70.</span> You will receive partial compensation if only one of the two parts is correct, or if you have the correct guess submitted for less than 10 seconds.
+				<br>
+				<br>
+
+				<li><b>Accuracy of outputs for teacher examples</b>: You will receive up to an <span class='bonus-block'>additional $1.00 based on how many of your responses to the teacher are correct</span>. For example, in the example teaching interaction in the right image, the participant gave 2/3 answers to the teacher, and so their bonus would be <span class='bonus-block-2'>$1.00 &lowast; (2/3) = $0.67.</span></li>
+			</ul>
+			Therefore, you should aim to <b>provide a guess </b>of what <span class="wug">wug</span> does <b>as soon as you think you know</b>, and aim to <b>give the teacher accurate answers</b>. You will not know if the guesses you submit for <span class="wug">wug</span> are correct.
+			</p>
+			
+        </div>
+    </div>
+	
+    
+    <div class="button-row">
+        <center>
+        <div class="button-container">
+        <button id="prev-button">Back</button>
+        <button id="next-button">Next</button>
+        </div>
+        </center>
+    </div>
+	
+</div>
+    
+    <div id="timer" class="timer" style="display: none">
+		Timer: {{ time }}
+	</div>	
+
+    </div>
+   
+	<div id="progress-container">
+        <div id="progress-dots"></div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+<script src="{{ url_for('static', filename='javascript/task.js') }}"></script>
+
+</body>
+</html>
+

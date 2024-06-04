@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mystery Machine Study</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+
+	<header id="fixed-header">
+	<h1>Mystery Machine Study</h1>
+	</header>
+	<header id="subheader">
+	<h2>Task</h2>
+	</header>
+	
+	<div class="instructions">
+	<h3 style="margin-top: 0.5em;">Goal</h3>
+	In this study, we are researching the way that people learn from examples. You will be tasked with learning what a <b>mystery machine</b> called <span class="wug">wug</span> does. This machine takes in numbers and outputs numbers; 
+	<span class="wug-lighter">wug(x)=y</span> 
+	means that when <span class="wug">wug</span> takes in number <span class='wug-lighter'>x</span>, it outputs <span class='wug-lighter'>y</span>. However, it only works for some numbers and is <b>undefined</b> for others. Your task is to learn on what inputs <b><span class="wug">wug</span> is undefined</b>, and when it is defined, <b>what it does</b>.
+    
+	<br><br>
+	For example, suppose that you were instead learning about a machine <span class="wug2">vug</span> that operated on letters instead of numbers. Suppose you saw the following sequence of examples: <span class="wug2-data">vug(<b "style">A</b>)=B</span>, <span class="wug2-data">vug(<b>B</b>)=<b>undefined</b></span>, <span class="wug2-data">vug(<b>E</b>)=<b>F</b></span>, <span class="wug2-data">vug(<b>I</b>)=<b>J</b></span>. This data might suggest that <span class="wug2">vug</span> is <b>undefined</b> on consonants and, when defined (on vowels), returns the next letter in the alphabet.
+    
+    
+    <br><br>
+    
+    <div class='button-row'>
+        <center>
+            <div class="button-container-single">
+                <button id="next-button">Next</button>
+            </div>
+        </center>
+    </div>
+</div>
+    
+    <div id="timer" class="timer" style="display: none">
+		Timer: {{ time }}
+	</div>	
+
+    </div>
+   
+	<div id="progress-container">
+        <div id="progress-dots"></div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+<script src="{{ url_for('static', filename='javascript/task.js') }}"></script>
+
+</body>
+</html>
+

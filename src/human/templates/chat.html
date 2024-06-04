@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Interface</title>
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/chat.css') }}">
+
+<body> 
+    <header id="fixed-header">
+        <h1>Mystery Machine Study</h1>
+    </header>
+  
+    <header id="subheader">
+        <h2>Chat</h2>
+    </header>
+
+   
+	<div id="progress-container">
+        <div id="progress-dots"></div>
+    </div>
+
+    <!-- Add a timer element to the top right -->
+    <div id="timer" class="timer">
+	Timer: {{ time }}
+    </div>
+    
+    <div id="finish-confirmation" class="popup-reminder">
+        <center>
+        <div id="finish-confirmation-text"></div>
+        <br>
+        <button id='finish-button-yes' onclick="goToCheck();" style="">Yes, I am ready to finish.</button>
+        <button id='finish-button-no' onclick="closeFinishConfirmation();" style="">No, I want to keep guessing.</button>
+        </center>
+    </div>
+    <div id="finish-confirmation-overlay" class="overlay"></div>
+
+
+    <div id="reminder-to-guess" class='popup-reminder'>
+        <center>
+        You have been learning for {{ curr_minutes }} minutes. You may wish to enter a guess of what <span class='math'>wug</span> does. Remember, you may submit multiple guesses! 
+        <br>
+        <button onclick="closeGuessReminder()" style="margin-top: 30px;">OK</button>
+        </center>
+    </div>
+    <div id="overlay" class="overlay"></div>
+
+    <div id="global-container">
+
+    <div id="chat-area">
+   
+        <div id = "streak-outer-container">
+        <b>Accuracy of Predictions:</b>
+            <div id="pred-accuracy"></div>
+            <br>
+            <div id="streak-container">
+                <b>Streak: </b>
+            </div>
+        </div>
+    
+    <!-- Add chat section -->
+    <div id="chatbox">
+        <div id="begin-button-outer-wrapper">
+        </div>
+        <ul id="chat-list">
+        {% for id in chat_messages %}
+        {{ id['html'] | safe }}
+        {% endfor %}
+        </ul>
+        <div id="typing-status"></div>
+    </div>
+
+    <div id="input-area">
+        <input type="text" id="user-input" placeholder="Type your message here..." onkeydown="checkEnter(event);">
+        <button onclick="sendUserInput()">Send</button>
+        <div class="error-message" id="chat-error-message"></div> <!-- Add this line -->
+    </div>
+    
+</div>
+
+    <div id="side-container">
+
+    <div id='hint-chat' class="hint"> 
+
+        I'm pretty sure, but not totally confident, that: 
+		<ol>
+			<li>
+				{{ hint1 | safe}}
+			</li>
+			<li>
+				{{ hint2 | safe }}
+			</li>
+        </ol>
+
+        --Dr. Smith
+    </div>
+    
+    <div id="side-container-2">
+
+    <div id="sidebar">
+        <h3>Make a guess about <span class='math'>wug</span></h3>
+    
+        <div class="guess-container">
+	    <label for="function1">(1) <span class='wug'>wug(x)</span> is undefined when input <span class='math'>x</span> is:</label>
+            <select class="guess-select", id="function1" name="function1" onchange="changeOptions(); submitGuessFunction1('function1');">
+                <option disabled value="--" {% if function1Selected == '--' or function1Selected == 'no_guess' %}selected{% endif %}> -- </option>
+                {% for option in function1_options %}
+                <option value="{{ option | safe }}" {% if option == function1Selected %}selected{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+            <select class='number-select function1-number-select', id="function1-divisible" style="display:none;" onchange="submitGuessFunction1('function1-divisible');">
+                <!-- <option>Select Number</option> -->
+                <option disabled value="--" {% if function1DivisibleSelected == '--' or function1DivisibleSelected == 'no_guess' %}selected{% endif %}> -- </option>
+                {% for option in function1_divisible_options %}
+                <option value="{{ option | safe }}" {% if option == function1DivisibleSelected %}selected{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+            
+            <select class='number-select function1-number-select', id="function1-greater" style="display:none;" onchange="submitGuessFunction1('function1-greater');">
+                <option disabled value="--" {% if function1GreaterSelected == '--' or function1GreaterSelected == 'no_guess' %}selected{% endif %}> -- </option>
+                <!-- <option>Select Number</option> -->
+                {% for option in function1_greater_options%}
+                <option value="{{ option | safe }}" {% if option == function1GreaterSelected %}selected{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        <div id="guess-error-message1"></div> <!-- Add this line -->
+        </div>
+        <br>
+    
+        <div class="guess-container">
+	    <label for="function2">(2) when defined, <span class='wug'>wug(x)</span> computes <span class='math'><span class="constant">a</span>&lowast;x+<span class="constant">b</span></span> where:</label>
+            <select class="number-select persistent-dropdown", id="function2-a" onchange="changeFunction2(); submitGuessFunction2A('function2-a');">
+                <option disabled value="--" {% if function2ASelected == '--' or function2ASelected == 'no_guess' %}selected{% endif %}>a=-- </option>
+                {% for option in function2a_options %}
+                <option value="{{ option | safe }}" {% if option == function2ASelected %}selected{% endif %}>a={{ option }}</option>
+                {% endfor %}
+            </select>
+            <select class="number-select persistent-dropdown", id="function2-b" onchange="changeFunction2(); submitGuessFunction2B('function2-b');">
+                <option disabled value="--" {% if function2BSelected == '--' or function2BSelected == 'no_guess' %}selected{% endif %}>b=-- </option>
+                {% for option in function2b_options %}
+                <option value="{{ option | safe }}" {% if option == function2BSelected %}selected{% endif %}>b={{ option }}</option>
+                {% endfor %}
+            </select>
+
+            <div id="function2-guess-display" style="display: inline;">
+            <span class="invisible-guess-block" style="margin-left: 5px;"></span>
+            </div>
+        <div id="guess-error-message2"></div> <!-- Add this line -->
+        </div>
+
+    <br>
+    </div>
+    <div id="reminder">
+        <span style='visibility: hidden;'>Note: Negative numbers can be divisible by positive numbers (i.e. <span class='math-smaller'>-4</span> is divisible by <span class='math-smaller'>2</span>). Zero is also divisible by every non-zero integer (i.e. <span class='math-smaller'>0</span> is divisible by <span class='math-smaller'>-4</span> but not by <span class='math-smaller'>0</span>). </span>
+        <br><br>
+        Remember: <b>Multiple guesses</b> are allowed, and you can get <b>partial credit</b> for getting only one part of wug correct. The sooner you have the correct guess for wug, the higher your bonus.
+    </div>
+    </div>
+
+   
+    <div id="side-container-3">
+    <div id="calculator">
+	    <h3 style="margin-top: 5px; display: inline;">Calculator</h3> for <span class='math'><span class="constant">a</span>&lowast;x+<span class="constant">b</span></span> where:
+        <div id="inner-calculator">
+        <!-- <center> -->
+        <select class="number-select", id="function2-a-calc" style="margin-top: 10px;", onchange="calculate();"> 
+            <option disabled value="--" {% if last_calc_a == '--' %}selected{% endif %}>a=-- </option>
+            {% for option in function2a_options %}
+            <option value="{{ option | safe }}" {% if option == last_calc_a %}selected{% endif %}>a={{ option }}</option>
+            {% endfor %}
+        </select>
+        <select class="number-select", id="function2-b-calc", onchange="calculate();">
+            <option disabled value="--" {% if last_calc_b == '--' %}selected{% endif %}>b=-- </option>
+            {% for option in function2b_options %}
+            <option value="{{ option | safe }}" {% if option == last_calc_b %}selected{% endif %}>b={{ option }}</option>
+            {% endfor %}
+        </select>
+        OR
+        <button id='use-current-guess' class="grey-button" type="button" onclick="updateCalculatorConstants();" style="display: inline;">Reset to Guess</button>
+        <div id="dummy" style="height: 5px;"></div>
+      
+        <div id="inner-calculator-2">
+        <form id="calculator-form" style="margin-top: 20px; margin-left: 15px; width: 120px; display: inline;">
+            <label for="x">x=</label>
+            <input type="number" id="x" step="any" value={{ last_calc_x }} required style="width: 50px; padding: 5px; display: inline;" onkeydown="checkEnterCalculator(event);" oninput="calculate();">
+        </form>
+        <div id="result" style="margin-left: 0px;display: inline;height: 20px;">Result:</div>
+        <div id="calculator-error-message" class="error-message" style="margin-top: 5px;"></div>
+        </div>
+        </div>
+    
+    </div>
+    
+    <div id="calc-note">
+        You can use this calculator to help you figure out wug; it will not affect your bonus.
+    </div>
+</div>
+</div>
+    
+    <div class='button-row' style="">
+        <center>
+            <div class="button-container" style='margin-top: 50px;'>
+                <button id="prev-button">Back</button>
+                <button id='finish-button' onclick="openFinishConfirmation();" style="display: none;">Finish</button>
+            </div>
+        </center>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+<script src="{{ url_for('static', filename='javascript/chat.js') }}"></script>
+    
+</body>
+</html>

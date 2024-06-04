@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mystery Machine Study</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+
+	<header id="fixed-header">
+	<h1>Mystery Machine Study</h1>
+	</header>
+	<header id="subheader">
+	<h2>Task</h2>
+	</header>
+	
+	<div class="instructions">
+	
+	<h3 style="margin-top: 0.5em;">Hints about <span class='wug'>wug</span></h3>
+
+	Fortunately, you are not starting from a blank slate. Dr. Smith spent a bunch of time studying this machine. 
+    She figured out that when <span class='wug'>wug</span> is defined, it computes a function of the form <span class='wug3-data'><span class='math'><span class="constant">a</span>&lowast;x+<span class="constant">b</span></span></span>, where <span class="constant">a</span> and <span class="constant">b</span> are constant numbers, so you only need to figure out what <span class="constant">a</span> and <span class="constant">b</span> are. 
+
+    <br><br>
+	She also left a note with some thoughts:
+
+	<div class="hint" id="hint">
+
+        I'm pretty sure, but not totally confident, that: 
+		<ol>
+			<li>
+				{{ hint1 | safe}}
+			</li>
+			<li>
+				{{ hint2 | safe }}
+			</li>
+		</ol>
+        --Dr. Smith
+    </div> 
+	
+	<br><br>
+
+    Dr. Smith is quite familiar with <span class='wug'>wug</span>, so her note should give you a good place to start! But keep in mind that it is possible that she is wrong.
+    <br><br>
+
+    We will provide the note for you throughout learning so that you can refer to it. You can also always come back to the task instructions by using the navigation buttons "Back" and "Next" below. 
+	<br><br>
+    <div class='button-row'>
+        <center>
+        <div class="button-container">
+            <button id="prev-button">Back</button>
+			<button id="next-button">Next</button>
+        </div>
+        </center>
+    </div>
+	</div>
+    
+    <div id="timer" class="timer" style="display: none">
+		Timer: {{ time }}
+	</div>	
+
+	
+    </div>
+   
+	<div id="progress-container">
+        <div id="progress-dots"></div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+<script src="{{ url_for('static', filename='javascript/task.js') }}"></script>
+
+</body>
+</html>
+

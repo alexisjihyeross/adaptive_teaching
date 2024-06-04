@@ -1,0 +1,106 @@
+{
+    "base_prog": "(if f_x None else g_x)",
+    "divisible_options": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "fx_concept_description": "positive",
+    "fx_half_prog": "(positive x_)",
+    "fx_special_concept": "positive",
+    "fx_spurious": "greater_2",
+    "fx_spurious_description": "greater than 2",
+    "fx_spurious_options": [
+        "greater_1",
+        "greater_2"
+    ],
+    "gold_description": "wug(x) is undefined when x is positive. When defined, wug(x) computes (-5)*x+5.",
+    "gold_prog": "(if (positive x_) None else (add_5 (multiply (exp x_ 1) -5)))",
+    "greater_options": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "gx_a": -5,
+    "gx_b": 5,
+    "gx_concept_description": "(-5)*x+5",
+    "gx_special_concept": "add_5",
+    "gx_spurious": "add_2",
+    "gx_spurious_options": [
+        "add_1",
+        "add_2",
+        "add_3",
+        "add_4",
+        "add_6",
+        "add_7",
+        "add_8",
+        "add_9"
+    ],
+    "id": "positive+(-5)*x+5",
+    "max_input_val": 21,
+    "min_input_val": -20,
+    "poly_kwargs": {
+        "abs_vals": [
+            false
+        ],
+        "coefficients": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+        ],
+        "constants": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+        ],
+        "exponents": [
+            1
+        ]
+    }
+}

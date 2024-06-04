@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mystery Machine Study</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/check.css') }}">
+
+</head>
+<body>
+	<header id="fixed-header">
+    <h1>Mystery Machine Study</h1>
+	</header>
+    <header id="subheader">
+	    <h2>Exit Questions</h2>
+    </header>
+    <div class="instructions" style="width: 40%; max-width: 1000px;">
+
+    <h4 style="margin-bottom: 0px; margin-top: 10px;">
+    A) Was Dr. Smith's note right?
+    </h4>
+    
+    <div class="hint" id="hint">
+
+        I'm pretty sure, but not totally confident, that: 
+		<ol>
+			<li>
+				{{ hint1 | safe}}
+			</li>
+			<li>
+				{{ hint2 | safe }}
+			</li>
+        </ol>
+        --Dr. Smith
+    </div>
+   
+
+    <form id="check-form">
+        <fieldset>
+            <legend>Hint (1) was:</legend>
+            <label>
+                <input type="radio" name="question1" value="correct"> Correct
+            </label>
+            <label>
+                <input type="radio" name="question1" value="incorrect"> Incorrect
+            </label>
+            <label>
+                <input type="radio" name="question1" value="dont-know"> I don't know 
+
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Hint (2) was:</legend>
+            <label>
+                <input type="radio" name="question2" value="correct"> Correct
+            </label>
+            <label>
+                <input type="radio" name="question2" value="incorrect"> Incorrect
+            </label>
+            <label>
+                <input type="radio" name="question2" value="dont-know"> I don't know 
+
+        </fieldset>
+
+    </form>
+    
+    <h4 style="margin-bottom: 0px; margin-top: 0px;">
+    B) Did Dr. Smith's note influence what you thought <span class="wug">wug</span> did?
+    </h4>
+    <form style="padding-top: 10px;">
+        <fieldset>
+            <label>
+                <input type="radio" name="question3" value="yes"> Yes 
+            </label>
+            <label>
+                <input type="radio" name="question3" value="no"> No 
+            </label>
+        </fieldset>
+    </form>
+
+    <div id="chatboxContainer" style="width: 100%; margin-top: 0px;">
+        <h4 style="margin-bottom: 0px;">
+            C) Was there anything you found confusing or did not understand throughout the study, or any other issues that you encountered?
+        </h4>
+        <!-- <label for="chatboxComment">Was there anything you found confusing or did not understand in this study?</label> -->
+        <textarea id="chatboxComment" name="chatboxComment" rows="4" style="width: 95%; margin-top: 10px;"></textarea>
+    </div>
+    
+    <center>
+    <input type="submit" class='button' value="Submit" onclick="submitCheckQuestions()" style="margin-top: 10px;">
+    <div id="end-check-error-message" class="error-message" style="margin-top: 10px;"></div> 
+    </center>
+
+    </div>
+
+   <div id="progress-container">
+        <div id="progress-dots"></div>
+
+    </div>
+
+   <div id="progress-container">
+        <div id="progress-dots"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/check.js') }}"></script>
+</body>
+</html>
+

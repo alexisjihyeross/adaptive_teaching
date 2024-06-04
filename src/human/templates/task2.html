@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mystery Machine Study</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+
+	<header id="fixed-header">
+	<h1>Mystery Machine Study</h1>
+	</header>
+	<header id="subheader">
+	<h2>Task</h2>
+	</header>
+
+	<div class="instructions" style="width: 80%; max-width: 1400px; min-width: 750px;">
+	<h3 style="margin-top: 0.5em;">Details</h3>
+    <div class="two-column-container">
+		<img src="{{ url_for('static', filename='assets/interface_4.png') }}">
+        <div class="left-column">
+			<p>
+
+			You will be interacting with a <b>teacher</b> through a chat interface, shown on the right. The teacher will show you examples of what <span class="wug">wug</span> does on different numbers, first asking you what you think <span class="wug">wug</span> outputs on a given input, and then providing the true output. Your goal is to figure out what <span class="wug">wug</span> does as quickly as possible. 
+			</p>
+			
+			<br>
+			<p>
+			Throughout the teaching interaction, you can provide your <b>guess</b> of what you think <span class="wug">wug</span> does through the <b>sidebar</b> on the right. Your guess will have two parts: 
+			<ol>
+				<li>
+				when <span class="wug">wug</span> is <b>undefined</b> 
+				</li>
+				<li>
+				when defined, <b>what it does</b>. 
+				</li>
+			</ol>
+			</p>
+			
+			<br>
+			<p>
+			We also provide a <b>calculator</b> to help with any calculations you may need for your guess.
+			</p>
+			<br>
+			<p>You will have <b>10 minutes</b> to learn from the teacher. After that, you will no longer be able to learn about <span class="wug">wug</span> or make guesses. If you get <b>10 predictions correct in a row</b> while talking to the teacher <i>or </i>go through all the teacher's examples before the 10 minutes are up, you will have the option to <b>end the interaction early.</b> </p>
+
+			</p>
+
+        </div>
+    </div>
+	
+    
+    <div class="button-row">
+        <center>
+        <div class="button-container">
+        <button id="prev-button">Back</button>
+        <button id="next-button">Next</button>
+        </div>
+        </center>
+    </div>
+	
+</div>
+    
+    <div id="timer" class="timer" style="display: none">
+		Timer: {{ time }}
+	</div>	
+
+    </div>
+   
+	<div id="progress-container">
+        <div id="progress-dots"></div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+<script src="{{ url_for('static', filename='javascript/task.js') }}"></script>
+
+</body>
+</html>
+

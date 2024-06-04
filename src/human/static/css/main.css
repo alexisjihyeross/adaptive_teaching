@@ -1,0 +1,464 @@
+::-webkit-scrollbar {
+    width: 12px; /* Adjust the width as needed */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar handle */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color of the scrollbar track */
+}
+
+body {
+	font-family: Trebuchet MS;
+/*	background-color: #f0f0f0; */
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #333;
+	font-size: 16px;
+    overflow-y: scroll;
+/*	line-height: 30px; */
+}
+
+#subheader {
+	background-color: white; 
+    position: absolute;
+    top: 85px;
+    left: 9%;
+    width: 85%;
+    padding: 0px 0; /* Add padding as needed */
+    text-align: left; /* Center-align the header content */
+    z-index: 50; /* Ensure the header is on top of other content */
+}
+
+
+#fixed-header {
+    position: absolute;
+    width: 100%;
+    top: 15px;
+    left: 9%;
+    width: 85%;
+    background-color: white; /* Background color for the header */
+    padding: 10px 0; /* Add padding as needed */
+    text-align: left; /* Center-align the header content */
+    z-index: 50; /* Ensure the header is on top of other content */
+}
+
+
+.instructions {
+	position: absolute;
+	top: 140px;
+	left: 9%;
+	width: 61%;
+    max-width: 800px; 
+    min-width: 600px;
+    background-color: #fff; /* Background color for the header */
+	padding: 10px 0; /* Add padding as needed */
+	text-align: left; /* Center-align the header content */
+    padding-bottom: 50px;
+}
+
+#prolific-form {
+    position: absolute;
+    margin-top: 50px;
+}
+
+.wug {
+    font-family: Monaco, monospace;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 0px 3px 0px 3px; /* Add some padding to create space between text and the border */
+    display: inline-block; /* Make the span behave like a block-level element with width based on content */
+    border-radius: 5px;
+/*    background-color: #f0f0f0; */
+/*    border: 1px solid #ccc; /* Add a 1-pixel black border around the span */ */
+    border: 1px solid #E0BB33;
+    background-color: #FFECB3; 
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.wug-lighter {
+    font-family: Monaco, monospace;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 0px 3px 0px 3px; /* Add some padding to create space between text and the border */
+    display: inline-block; /* Make the span behave like a block-level element with width based on content */
+    border-radius: 5px;
+/*    background-color: #f0f0f0; */
+/*    border: 1px solid #ccc; /* Add a 1-pixel black border around the span */ */
+    border: 1px solid #E0BB33;
+    background-color: #fff5d5; 
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.wug2{
+ /*   font-family: Monaco; */
+    font-family: Monaco, monospace;
+    font-weight: normal;
+    font-size: 15px;
+    padding: 0px 3px 0px 3px; /* Add some padding to create space between text and the border */
+    display: inline-block; /* Make the span behave like a block-level element with width based on content */
+    border-radius: 5px;
+/*    background-color: #f0f0f0; */
+/*    border: 1px solid #ccc; /* Add a 1-pixel black border around the span */ */
+    border: 1px solid #E0BB33;
+    background-color:rgb(210, 210, 210); 
+}
+
+.wug2-data{
+    /*   font-family: Monaco; */
+        font-family: Monaco, monospace;
+       font-weight: normal;
+       font-size: 15px;
+       padding: 0px 3px 0px 3px; /* Add some padding to create space between text and the border */
+       display: inline-block; /* Make the span behave like a block-level element with width based on content */
+       border-radius: 5px;
+       background-color:rgb(240, 240, 240); 
+   }
+
+.math-block {
+    border: 1px solid rgb(220, 220, 220); /* Add a 1-pixel black border around the span */
+    padding: 0px 3px 0px 3px; /* Add some padding to create space between text and the border */
+    display: inline-block; /* Make the span behave like a block-level element with width based on content */
+    border-radius: 5px;
+/*    background-color: rgb(220, 220, 220); */
+    background-color: #f0f0f0;
+    font-style: italic;
+}
+
+.math{
+    font-size: 15px;
+    font-family: Monaco, monospace;
+    font-weight: bolder;
+}
+
+.math-smaller {
+    font-size: 14px;
+    font-family: Monaco, monospace;
+    font-weight: bold;
+}
+
+.bonus {
+    font-size: 14px;
+    font-family: Monaco, monospace;
+    font-weight: bold;
+}
+
+.bonus-block {
+    border: 1px solid rgb(245, 202, 202); /* Add a 1-pixel black border around the span */
+    padding: 0px 3px 0px 3px; /* Add some padding to create space between text and the border */
+    border-radius: 5px;
+    background-color: #f8d6d6;
+    font-size: 14px;
+    font-family: Monaco, monospace;
+    /* font-weight: bold; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.bonus-block-2 {
+    padding: 0px 3px 0px 3px; /* Add some padding to create space between text and the border */
+    border-radius: 5px;
+    background-color: #f8e5e5;
+    font-size: 14px;
+    font-family: Monaco, monospace;
+    /* font-weight: bold; */
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
+input[type="text"] {
+	padding: 10px;
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin: 5px;
+}
+
+.button-row {
+    /* width: 80%; */
+    background-color: white;
+	/* position: fixed; */
+	/* bottom: 35px; */
+    z-index: 100;
+}
+
+.button-container {
+	/* align-items: center; */
+    width: 100%;
+	/* display: inline; */
+	/* grid-template-columns: repeat(2, 1fr); */
+    padding-top: 20px;
+    padding-bottom: 20px;
+	align-items: center;
+}
+
+.button-container-single {
+	align-items: center;
+    width: 100%;
+	/* grid-template-columns: repeat(1, 1fr); */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Apply to actual buttons and just class buttons */
+button, .button {
+	padding: 10px 15px;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	border-radius: 7px;
+	cursor: pointer;
+    display: inline;
+    margin-left: -3px;
+    margin-right: -2px;
+}
+
+/* Apply to actual buttons and just class buttons */
+button:hover, .button:hover {
+	background-color: #555;
+}
+
+p {
+	font-weight: bold;
+	color: #333;
+}
+
+
+#progress-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0; /* Background color of the progress container */
+    z-index: 99; /* Ensure the progress bar is above the content */
+}
+
+/* Progress Dots Styles */
+#progress-dots {
+    display: flex;
+    justify-content: center;
+    padding: 13px; /* Adjust the padding as needed */
+}
+
+.progress-dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgb(10, 10, 10); /* Color of the progress dots */
+    border-radius: 50%; /* Make them circular */
+    margin: 0 7px; /* Adjust the margin between dots as needed */
+}
+
+.active {
+	background-color: #007bff;
+}
+
+.two-column-container {
+    /* display: flex; Use flexbox for a two-column layout */
+    width: 100%;
+    /* clear: both; */
+}
+
+img {
+    float: right;
+    width: 70%;
+    max-width: 750px;
+    min-width: 500px;
+    margin: 0px 0px 15px 15px;
+}
+
+.left-column {
+    /* width: 65%; */
+    /* margin-right: 40px; */
+    /* min-width: 300px; */
+    /* overflow: auto; */
+}
+
+.left-column p {
+    margin: 0;
+    font-weight: normal;
+}
+
+h3 { 
+    display: block;
+    font-size: 1.17em;
+    margin-top: 1.3em;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.timer {
+    position: fixed;
+    top: 10px; /* Adjust the top position as needed */
+    right: 10px; /* Adjust the right position as needed */
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 300;
+}
+
+/* For task; TODO: move to task css page */
+.hint {
+    padding: 15px 15px 15px 15px;
+    background: rgb(235, 235, 235);
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+}
+
+#hint {
+    margin-left: 30px;
+    margin-top: 20px;
+    width: max-content;
+    width: 90%;
+    max-width: 550px;
+}
+
+.wug3-data {
+    /*   font-family: Monaco; */
+       font-family: monospace;
+       font-weight: normal;
+       font-size: 15px;
+       padding: 0px 3px 0px 3px; /* Add some padding to create space between text and the border */
+       display: inline-block; /* Make the span behave like a block-level element with width based on content */
+       border-radius: 5px;
+       background-color:rgb(232, 239, 254); 
+   }
+
+.constant {
+    color: rgb(36, 123, 228);
+    font-weight: 500;
+    font-family: Monaco, monospace;
+    font-size: 15px;
+}
+
+.error-message {
+    color: #888;
+    font-size: 14px;
+}
+
+.hint ol {
+    margin-top: 9px;
+}
+
+.popup-reminder {
+    display: none;
+    position: fixed;
+    top: 45%;
+    width: 400px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 200px; */
+    padding: 20px;
+    background-color: #fff;
+    /* border: 1px solid #000; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 301;
+    border-radius: 15px;
+}
+
+/* Styles for the overlay background */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 300;
+}
+
+/* Styles for the close button */
+#reminder-to-guess button {
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 302;
+}
+
+form {
+    /* background-color: #fff; */
+    /* border: 1px solid #ddd; */
+    max-width: 400px;
+    /* margin: 0 auto; */
+    border-radius: 5px;
+    display: inline;
+}
+
+fieldset {
+    border: none;
+    /* margin: 0; */
+}
+
+input {
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+#instruction-check {
+    background-color: rgb(237, 246, 255);
+    padding: 15px;
+    width: 100%;
+    border-radius: 15px;
+}
+
+#instruction-check-wrapper {
+    width: 500px;
+    margin-left: 50px;
+}
+
+#instruction-check fieldset {
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.correct-answer {
+    /* color: rgb(43, 150, 43); */
+    background-color:rgb(194, 232, 194)
+}
+
+.incorrect-answer {
+    background-color:rgb(248, 203, 203);
+    /* text-decoration: line-through; */
+}
+
+#task-check-error-message {
+    height: 10px;
+}
+
+
+.grey-button {
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 7px;
+    background-color: rgb(107, 107, 107);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#grey-button:hover {
+    background-color: rgb(144, 144, 144);
+}
+
+
+#wug-answer {
+    background-color: rgb(255, 248, 222);
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mystery Machine Study</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+<header id="fixed-header">
+    <h1>Mystery Machine Study</h1>
+</header>
+
+    <header id="subheader">
+	    <h2>Introduction</h2>
+    </header>
+    <div class="instructions">
+        By entering your Prolific ID below, you are participating in a study being performed by computer scientists in the
+        MIT Department of Electrical Engineering and Computer Science and are agreeing to the following:
+        <ul>
+            <li>You must be at least 18 years old to participate. Your participation in this research is voluntary.</li>
+            <li>You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences.</li>
+            <li>Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</li>
+        </ul>
+	Once you click submit, you will not be able to come back to this page.
+	<br><br>
+    <!-- If you have questions about this research, please contact Alexis Ross at <span class='math'>alexisro@mit.edu</span>. -->
+    <div id="prolific-form">
+		<form action="/collect_prolific_id" method="POST">
+			<label for="prolific_id">Enter your Prolific ID:</label>
+        <input type="text" name="prolific_id" id='prolific-id-input' required>
+        <button type="submit" onclick="showLoading();">Submit</button>
+        </form>
+        <div id="loading" style="display: none; margin-left: 170px;" class="error-message"></div>
+    </div>
+    </div>
+
+   <div id="progress-container">
+        <div id="progress-dots"></div>
+    </div>
+<script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+<script src="{{ url_for('static', filename='javascript/index.js') }}"></script>
+<script>
+    // Clear local storage when the page loads
+    localStorage.clear();
+</script>
+</body>
+</html>
+

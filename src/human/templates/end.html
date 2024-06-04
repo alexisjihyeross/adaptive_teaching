@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mystery Machine Study</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+	<header id="fixed-header">
+    <h1>Mystery Machine Study</h1>
+	</header>
+    <div class="instructions">
+    You have finished the study. Thank you for participating! Here is your completion code: <span class='bonus-block'>{{ completion_code }}</span> 
+    <br><br>
+    The correct answer was:
+
+    <br><br>
+    
+    <!-- TODO: two things have id "hint" -->
+    <div class="hint" id="wug-answer">
+		<ol>
+			<li>
+				{{ answer1 | safe}}
+			</li>
+			<li>
+				{{ answer2 | safe }}
+			</li>
+        </ol>
+    </div>
+   
+
+    <br><br>
+    If you have questions about this research, please contact us at <span class='math'>alexisro@mit.edu</span>. We will be in touch about your bonus.
+    </div>
+
+   <div id="progress-container">
+        <div id="progress-dots"></div>
+    </div>
+<script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+</body>
+</html>
+
