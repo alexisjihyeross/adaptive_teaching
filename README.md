@@ -17,8 +17,8 @@ This repository contains code for our paper, [Toward In-Context Teaching: Adapti
 
 1.  Clone the repository.
     ```bash
-    git clone https://github.com/alexisjihyeross/pedagogy
-    cd mice
+    git clone https://github.com/alexisjihyeross/adaptive_teaching
+    cd adaptive_teaching
     ```
 
 2.  [Download and install Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
